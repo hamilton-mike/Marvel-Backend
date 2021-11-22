@@ -1,14 +1,13 @@
 require('dotenv').config();
+require('./db/mongoose')
 const express = require('express');
-const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 9000;
+const cors = require('cors');
 
-require('./db/mongoose')
-
-const comic = require('./conrollers/comic')
-
+const comicController = require('./controllers/comicAPI')
 
 app.use(express.json())
-app.use('/comic', comic)
-app.listen(PORT, () => console.log(`listening on PORT: ${PORT}`))
+app.use("/comic", comicController)
+
+app.listen(PORT, () => console.log(`🕷 listening on PORT: ${PORT}`))

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const comicItemSchema = mongoose.Schema({
+const comicSchema = mongoose.Schema({
     title: { type: String },
     description: { type: String },
     price: [Number],
@@ -10,4 +10,4 @@ const comicItemSchema = mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('ComicItem', comicItemSchema)
+module.exports = mongoose.model('Comic', comicSchema)

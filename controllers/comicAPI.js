@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Comic = require('../models/comicItem')
+const Comic = require('../models/comicSchema')
 
 router.get('/', async (req, res) => {
     try {
