@@ -38,7 +38,7 @@ router.put('/:id', async (req, res) => {
     }
 })
 
-router.delete('/', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const destroyComic = await Comic.findByIdAndRemove(req.params.id)
         res.status(200).json(destroyComic)
