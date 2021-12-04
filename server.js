@@ -5,7 +5,8 @@ const app = express();
 const cors = require('cors');
 const PORT = process.env.PORT || 9000;
 
-const comicController = require('./controllers/comicAPI')
+const heroController = require('./controllers/heroAPI');
+const teamController = require('./controllers/teamAPI');
 
 const urlArray = ['http://localhost:3000'];
 const corsOptions = {
@@ -20,6 +21,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/comic", comicController);
+app.use("/hero", heroController);
+app.use('/team', teamController);
 
-app.listen(PORT, () => console.log(`🕷 listening on PORT: ${PORT}`))
+app.listen(PORT, () => console.log(`🕷 listening on PORT: ${PORT}`));

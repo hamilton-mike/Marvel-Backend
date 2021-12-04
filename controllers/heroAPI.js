@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const Comic = require('../models/comicSchema')
+const Hero = require('../models/heroSchema');
 
 router.get('/', async (req, res) => {
     try {
-        const comics = await Comic.find()
-        res.status(200).json(comics)
+        const heros = await Hero.find()
+        res.status(200).json(heros)
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
@@ -13,8 +13,8 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const comic = await Comic.findById(req.params.id)
-        res.status(200).json(comic)
+        const hero = await Hero.findById(req.params.id)
+        res.status(200).json(hero)
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
@@ -22,8 +22,8 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
     try {
-        const newComic = await Comic.create(req.body)
-        res.status(200).json(newComic)
+        const newHero = await Hero.create(req.body)
+        res.status(200).json(newHero)
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
@@ -31,8 +31,8 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const editComic = await Comic.findByIdAndUpdate(req.params.id, req.body, { new: true })
-        res.status(200).json(editComic)
+        const editHero = await Hero.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        res.status(200).json(editHero)
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
@@ -40,8 +40,8 @@ router.put('/:id', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        const destroyComic = await Comic.findByIdAndRemove(req.params.id)
-        res.status(200).json(destroyComic)
+        const destroyHero = await Hero.findByIdAndRemove(req.params.id)
+        res.status(200).json(destroyHero)
     } catch (error) {
         res.status(400).json({ error: error.message })
     }
