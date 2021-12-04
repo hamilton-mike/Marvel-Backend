@@ -4,7 +4,7 @@ const teamSchema = mongoose.Schema({
     team_Name: { type: String, require: true },
     members: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Comic"
+        ref: "Hero"
     }]
 })
 
