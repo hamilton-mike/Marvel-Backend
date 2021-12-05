@@ -1,13 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const Team = require('../models/teamSchema');
-// const Hero = require('../models/heroSchema');
+const Hero = require('../models/heroSchema');
 // const id = require('mongoose').Types.ObjectId
 
 
 router.get('/', async (req, res) => {
     try {
-        const teams = await Team.find();
+        const teams = await Team.find().populate('hero');
+        console.log(teams, 'teams');
         res.status(200).json(teams)
     } catch (error) {
         res.status(400).json({ error: error.message })
