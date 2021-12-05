@@ -21,7 +21,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/hero", heroController);
+app.use("/heros", heroController);
 app.use('/team', teamController);
 
 app.listen(PORT, () => console.log(`🕷 listening on PORT: ${PORT}`));
