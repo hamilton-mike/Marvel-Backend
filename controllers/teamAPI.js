@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        const team = await Team.findById(req.params.id)
+        const team = await Team.findById(req.params.id).populate('hero')
         res.status(200).json(team)
     } catch (error) {
         res.status(400).json({ error: error.message })
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const editTeam = await Team.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        const editTeam = await Team.findByIdAndUpdate(req.params.id, req.body, { new: true }).populate('hero')
         res.status(200).json(editTeam)
     } catch (error) {
         res.status(400).json({ error: error.message })
