@@ -16,14 +16,12 @@ const corsOptions = {
         } else {
             cb(new Error('Not allowed by CORS!!!'))
         }
-    }
+    },
 }
 
 app.use(cors(corsOptions));
 app.use(express.json());
-app.use("/heros", heroController);
+app.use("/hero", heroController);
 app.use('/team', teamController);
-const proxy = require('express-http-proxy');
-app.use('/', proxy('http://gateway.marvel.com/v1/public'))
 
 app.listen(PORT, () => console.log(`🕷 listening on PORT: ${PORT}`));
