@@ -5,7 +5,6 @@ const Team = require('../models/teamSchema');
 router.get('/', async (req, res) => {
     try {
         const teams = await Team.find();
-        res.header('Access-Control-Allow-Origin', '*')
         res.status(200).json(teams);
     } catch (error) {
         res.status(400).json({ error: error.message })
@@ -15,7 +14,6 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const team = await Team.findById(req.params.id);
-        res.header('Access-Control-Allow-Origin', '*')
         res.status(200).json(team);
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -25,7 +23,6 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const newTeam = await Team.create(req.body);
-        res.header('Access-Control-Allow-Origin', '*')
         res.status(200).json(newTeam)
     } catch (error) {
         res.status(400).json({ error: error.message });
