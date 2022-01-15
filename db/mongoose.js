@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const DB_URL = process.env.REACT_APP_DB_URL || 'mongodb://localhost:27017/comic'
-
+const DB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/comic'
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'))
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 mongoose.connect(DB_URL, {
