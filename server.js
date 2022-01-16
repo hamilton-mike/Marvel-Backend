@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 9000;
 const heroController = require('./controllers/heroAPI');
 const teamController = require('./controllers/teamAPI');
 
-const urlArray = ['http://localhost:3000'];
+const urlArray = ['http://localhost:3000', 'https://marvel-mern-app.herokuapp.com', 'https://shield-commander.netlify.app'];
 const corsOptions = {
     origin: (origin, cb) => {
         if (urlArray.indexOf(origin) != -1 || !origin) {
@@ -18,7 +18,6 @@ const corsOptions = {
         }
     },
 }
-
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/hero", heroController);
