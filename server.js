@@ -10,15 +10,15 @@ const teamController = require('./controllers/teamAPI');
 
 const urlArray = ['http://localhost:3000', 'https://marvel-mern-app.herokuapp.com', 'https://shield-commander.netlify.app'];
 const corsOptions = {
+    headers: {
+        'Access-Control-Allow-Origin': '*'
+    },
     origin: (origin, cb) => {
         if (urlArray.indexOf(origin) != -1 || !origin) {
             cb(null, true)
         } else {
             cb(new Error(`Origin not allowed by CORS!!!: ${origin}`))
         }
-    },
-    headers: {
-        'Access-Control-Allow-Origin': 'https://shield-commander.netlify.app'
     }
 }
 
