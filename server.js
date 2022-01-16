@@ -21,9 +21,15 @@ const corsOptions = {
         'Access-Control-Allow-Origin': 'https://shield-commander.netlify.app'
     }
 }
+
+app.use(function (err, req, res, next) {
+  console.error(err)
+  res.status(500).send(err.toString())
+})
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/hero", heroController);
 app.use('/team', teamController);
+
 
 app.listen(PORT, () => console.log(`🕷 listening on PORT: ${PORT}`));
