@@ -17,6 +17,9 @@ const corsOptions = {
             cb(new Error('Not allowed by CORS!!!'))
         }
     },
+    headers: {
+        'Access-Control-Allow-Origin': 'https://shield-commander.netlify.app'
+    }
 }
 app.use(cors(corsOptions));
 app.use(express.json());
