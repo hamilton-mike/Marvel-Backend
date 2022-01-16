@@ -14,7 +14,7 @@ const corsOptions = {
         if (urlArray.indexOf(origin) != -1 || !origin) {
             cb(null, true)
         } else {
-            cb(new Error('Not allowed by CORS!!!'))
+            cb(new Error(`Origin not allowed by CORS!!!: ${origin}`))
         }
     },
     headers: {
