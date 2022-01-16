@@ -1,5 +1,6 @@
 require('dotenv').config();
 require('./db/mongoose');
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -11,7 +12,8 @@ const teamController = require('./controllers/teamAPI');
 const urlArray = ['http://localhost:3000', 'https://marvel-mern-app.herokuapp.com', 'https://shield-commander.netlify.app'];
 const corsOptions = {
     headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*'
     },
     origin: (origin, cb) => {
         if (urlArray.indexOf(origin) != -1 || !origin) {
