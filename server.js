@@ -11,10 +11,10 @@ const teamController = require('./controllers/teamAPI');
 
 const urlArray = ['http://localhost:3000', 'https://marvel-mern-app.herokuapp.com', 'https://shield-commander.netlify.app'];
 const corsOptions = {
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': '*'
-    },
+    "methods": "GET, HEAD, PUT, PATCH, POST, DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204,
+    "allowedHeaders": ["Content-Type"],
     origin: (origin, cb) => {
         if (urlArray.indexOf(origin) != -1 || !origin) {
             cb(null, true)
